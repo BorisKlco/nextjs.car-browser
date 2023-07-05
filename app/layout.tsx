@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata = {
   title: "Car Browser",
-  description: "GLearning next.js!",
+  description: "Learning next.js!",
 };
 
 export default function RootLayout({
