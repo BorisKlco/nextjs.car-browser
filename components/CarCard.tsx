@@ -9,7 +9,8 @@ interface CarCardProps {
 }
 
 const CarCard = ({ car }: CarCardProps) => {
-  const { city_mpg, year, make, model, transmission, drive } = car;
+  const { city_mpg, combination_mpg, year, make, model, transmission, drive } =
+    car;
 
   return (
     <div className="car-card group">
@@ -20,7 +21,7 @@ const CarCard = ({ car }: CarCardProps) => {
       </div>
       <p className="flex mt-6 text-[32px] font-extrabold">
         <span className="self-start text-[14px] font-semibold">$</span>
-        {city_mpg}
+        {Math.floor(((city_mpg / 3) * combination_mpg) / 4)}
         <span className="self-start text-[14px] font-semibold">/day</span>
       </p>
 
