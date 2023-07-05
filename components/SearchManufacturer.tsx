@@ -53,9 +53,7 @@ const SearchManufacturer = ({
                     active,
                   }) => `relative search-manufacturer__option 
                 ${active ? "bg-primary-blue text-white" : "text-gray-900"}`}
-                >
-                  {item}
-                </Combobox.Option>
+                ></Combobox.Option>
               ))}
             </Combobox.Options>
           </Transition>
