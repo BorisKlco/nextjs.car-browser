@@ -19,6 +19,12 @@ export interface SearchManufacturerProps {
   setManufacturer: Dispatch<SetStateAction<string>>;
 }
 
+export interface CarDetailsProps {
+  isOpen: boolean;
+  closeModal: () => void;
+  car: CarProps;
+}
+
 export interface CarProps {
   city_mpg: number;
   class: string;
