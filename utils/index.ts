@@ -4,14 +4,19 @@ interface headersProps {
   [key: string]: string;
 }
 
-const fetchCars = async () => {
+interface FilterProps {
+  manufacturer: string;
+  model: string;
+}
+
+const fetchCars = async (filter: FilterProps) => {
   const headers: headersProps = {
     "X-RapidAPI-Key": process.env.KEY!,
     "X-RapidAPI-Host": "cars-by-api-ninjas.p.rapidapi.com",
   };
 
   const url = await fetch(
-    `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=corolla`,
+    `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${filter.manufacturer}&model=${filter.model}`,
     {
       headers: headers,
     }
@@ -26,6 +31,7 @@ export const generateCarImageUrl = (car: CarProps, angle?: string) => {
   const { make, year, model } = car;
 
   url.searchParams.append("customer", "copyright-imaginstudio");
+  url.searchParams.append("width", "384");
   url.searchParams.append("make", make);
   url.searchParams.append("modelFamily", model.split(" ")[0]);
   url.searchParams.append("zoomType", "fullscreen");
