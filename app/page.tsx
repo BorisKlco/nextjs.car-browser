@@ -1,5 +1,5 @@
 import { Hero, SearchBar, CustomFilter, CarCard } from "@/components";
-import { CarProps } from "@/types";
+import { CarProps, FilterProps } from "@/types";
 import fetchCars from "@/utils";
 
 export default async function Home({ searchParams }) {
@@ -7,6 +7,8 @@ export default async function Home({ searchParams }) {
     manufacturer: searchParams.manufacturer || "",
     model: searchParams.model || "",
   });
+
+  console.log(allCars);
 
   return (
     <main className="overflow-hidden">
@@ -26,7 +28,7 @@ export default async function Home({ searchParams }) {
           </div>
         </div>
 
-        {allCars ? (
+        {!allCars.error ? (
           <section>
             <div className="home__cars-wrapper">
               {allCars?.map((item: CarProps, index: number) => (
@@ -37,7 +39,7 @@ export default async function Home({ searchParams }) {
         ) : (
           <div className="home__error-container">
             <h2 className="text-black text-xl font-bold">Opps, no results</h2>
-            <p>{allCars?.message}</p>
+            <p>{allCars?.error}</p>
           </div>
         )}
       </div>

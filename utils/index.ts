@@ -1,12 +1,7 @@
-import { CarProps } from "@/types";
+import { CarProps, FilterProps } from "@/types";
 
 interface headersProps {
   [key: string]: string;
-}
-
-interface FilterProps {
-  manufacturer: string;
-  model: string;
 }
 
 const fetchCars = async (filter: FilterProps) => {

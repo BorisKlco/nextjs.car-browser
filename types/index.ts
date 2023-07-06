@@ -14,6 +14,11 @@ export interface CustomFilterProps {
   title: string;
 }
 
+export interface FilterProps {
+  manufacturer: string;
+  model: string;
+}
+
 export interface SearchManufacturerProps {
   manufacturer: string;
   setManufacturer: Dispatch<SetStateAction<string>>;
